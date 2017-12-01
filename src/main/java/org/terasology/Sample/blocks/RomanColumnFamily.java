@@ -19,28 +19,13 @@ import org.terasology.world.block.family.UpdatesWithNeighboursFamily;
 import org.terasology.world.block.loader.BlockFamilyDefinition;
 import org.terasology.world.block.shapes.BlockShape;
 
-import java.util.ArrayList;
-
 @RegisterBlockFamily("romancolumn")
 @BlockSections({"lone_block", "on_top", "on_bottom", "in_a_line"})
 public class RomanColumnFamily extends AbstractBlockFamily implements UpdatesWithNeighboursFamily {
 
     @In
     WorldProvider worldProvider;
-
-    Iterable<String> categories = new ArrayList<String>() {
-
-        private static final long serialVersionUID = 1L;
-
-        {
-
-            add("roman");
-            add("column");
-            add("romancolumn");
-
-        }
-    };
-
+    
     private TByteObjectMap<Block> blocks;
 
     BlockUri blockUri;
@@ -65,7 +50,6 @@ public class RomanColumnFamily extends AbstractBlockFamily implements UpdatesWit
 
         this.setBlockUri(blockUri);
         this.setCategory(definition.getCategories());
-        this.setCategory(categories);
     }
 
     private void addConnection(Byte bitFlag, String section, BlockFamilyDefinition definition, BlockBuilderHelper blockBuilder) {
